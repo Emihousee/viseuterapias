@@ -76,6 +76,7 @@ nav .btn{color:#fff;padding:10px 20px}
 .curso td{padding:10px 0;border-bottom:1px solid var(--areia);vertical-align:top}
 .curso td:first-child{color:var(--suave);width:36%;padding-right:10px}
 .curso td b{color:var(--verde-esc)}
+.curso td small{color:var(--suave);font-size:.85rem}
 .inclui{list-style:none;margin:4px 0 18px;font-size:.92rem;color:var(--suave)}
 .inclui li{padding:3px 0}
 .inclui li::before{content:"✓ ";color:var(--verde);font-weight:700}
@@ -128,6 +129,50 @@ details li b{color:var(--texto);font-weight:600}
 footer{background:#33281a;color:#bfb298;font-size:.84rem;padding:26px 0}
 footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 footer a{color:#efe6d3}
+
+/* formulário de inscrição */
+.insc{border:0;padding:0;border-radius:18px;width:min(460px,calc(100% - 32px));max-height:calc(100% - 32px);background:var(--branco);color:var(--texto);box-shadow:0 24px 60px rgba(46,35,20,.35)}
+.insc::backdrop{background:rgba(46,35,20,.62)}
+.insc .topo{background:var(--verde-esc);color:#fff;padding:22px 24px 18px;position:relative}
+.insc .topo small{display:block;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:#e3d3a8;margin-bottom:4px}
+.insc .topo b{font-family:"Cormorant Garamond",serif;font-size:1.55rem;font-weight:600;line-height:1.15}
+.insc .fechar{position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:50%;border:0;background:rgba(255,255,255,.12);color:#fff;font-size:1.3rem;cursor:pointer}
+.insc .barra{height:4px;background:rgba(255,255,255,.18);border-radius:4px;margin-top:14px;overflow:hidden}
+.insc .barra i{display:block;height:100%;width:25%;background:#e3d3a8;transition:width .3s}
+.insc form{padding:22px 24px 24px}
+.insc [hidden]{display:none!important}
+.etapa{display:none}
+.etapa.ativa{display:block}
+.etapa h4{font-family:"Cormorant Garamond",serif;font-size:1.4rem;font-weight:600;color:var(--verde-esc);margin-bottom:14px;line-height:1.2}
+.opcao{display:flex;gap:12px;align-items:flex-start;border:1.5px solid var(--areia);border-radius:12px;padding:14px;margin-bottom:10px;cursor:pointer;transition:.15s}
+.opcao:hover{border-color:var(--verde-claro)}
+.opcao:has(input:checked){border-color:var(--verde);background:#fbf7ee}
+.opcao input{margin-top:4px;accent-color:var(--verde);width:18px;height:18px;flex:none}
+.opcao b{display:block;font-weight:600;color:var(--verde-esc);font-size:.97rem}
+.opcao span{display:block;font-size:.86rem;color:var(--suave);line-height:1.45;margin-top:2px}
+.opcao span strong{color:var(--verde);font-weight:600}
+.campo{margin-bottom:14px}
+.campo label{display:block;font-size:.84rem;font-weight:600;margin-bottom:5px;color:var(--verde-esc)}
+.campo label em{font-style:normal;font-weight:400;color:var(--suave)}
+.campo input{width:100%;padding:13px 14px;border:1.5px solid var(--areia);border-radius:10px;font:inherit;background:var(--creme)}
+.campo input:focus{outline:0;border-color:var(--verde);background:#fff}
+.aviso{font-size:.78rem;color:var(--suave);margin:4px 0 14px}
+.aviso a{color:var(--verde)}
+.erro{color:#a33a22;font-size:.84rem;min-height:1.2em;margin:2px 0 8px}
+.navs{display:flex;gap:10px}
+.navs .btn{flex:1;border:0;cursor:pointer;font-family:inherit}
+.navs .voltar{background:var(--areia);color:var(--verde-esc);flex:0 0 auto;padding:14px 20px}
+.navs .voltar:hover{background:#e0d2b6}
+.revisao{background:var(--creme);border-radius:12px;padding:6px 16px;margin-bottom:16px;font-size:.9rem}
+.revisao div{padding:9px 0;border-bottom:1px solid var(--areia)}
+.revisao div:last-child{border:0}
+.revisao small{display:block;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--suave)}
+.fim{text-align:center;padding:8px 0}
+.fim .ok{width:64px;height:64px;border-radius:50%;background:#efe5cf;color:var(--verde);font-size:2rem;display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+.fim p{color:var(--suave);font-size:.95rem;margin-bottom:18px}
+.fim .btn{background:#25d366;width:100%}
+.fim .btn:hover{background:#1ebe5b}
+button.btn{font-family:inherit;border:0;cursor:pointer}
 
 .wpp{position:fixed;right:20px;bottom:20px;width:58px;height:58px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(0,0,0,.25);z-index:60}
 .wpp svg{width:30px;height:30px;fill:#fff}
@@ -185,7 +230,7 @@ footer a{color:#efe6d3}
   <p>Aprenda na teoria e na prática e torne-se um constelador de excelência. Turma online ao vivo ou presencial em Porto Belo/SC.</p>
   <div class="acoes">
     <a class="btn" href="#turmas">Ver turmas e valores</a>
-    <a class="btn ghost" href="https://wa.me/5547988067119?text=Ol%C3%A1!%20Tenho%20interesse%20na%20Forma%C3%A7%C3%A3o%20em%20Constela%C3%A7%C3%A3o%20Familiar." target="_blank" rel="noopener">Falar no WhatsApp</a>
+    <button type="button" class="btn ghost" data-inscricao>Quero me inscrever</button>
   </div>
   
 </div></section>
@@ -194,7 +239,7 @@ footer a{color:#efe6d3}
 <section class="turmas" id="turmas"><div class="wrap">
   <span class="eyebrow">Escolha sua turma</span>
   <h2>Turmas abertas</h2>
-  <p class="lead">Vagas limitadas. Garanta a sua pelo WhatsApp.</p>
+  <p class="lead">Vagas limitadas. Faça sua inscrição e nossa equipe entra em contato pelo WhatsApp.</p>
 
   <div class="cursos">
     <div class="curso">
@@ -203,9 +248,10 @@ footer a{color:#efe6d3}
       <table>
         <tr><td>Início</td><td><b>21/10/2026</b></td></tr>
         <tr><td>Aulas</td><td>Ao vivo, às quartas à noite (40h)</td></tr>
+        <tr><td>Inscrição</td><td><b>R$ 300</b> (1º lote)</td></tr>
         <tr><td>Investimento</td><td><b>10x de R$ 220</b> ou R$ 1.800 à vista</td></tr>
       </table>
-      <a class="btn" href="https://wa.me/5547988067119?text=Ol%C3%A1!%20Quero%20me%20inscrever%20na%20Turma%20Online%202026%20de%20Constela%C3%A7%C3%A3o%20Familiar." target="_blank" rel="noopener">Quero me inscrever</a>
+      <button type="button" class="btn" data-inscricao="online">Quero me inscrever</button>
     </div>
     <div class="curso">
       <span class="tag dourado">Presencial • Porto Belo/SC</span>
@@ -213,10 +259,11 @@ footer a{color:#efe6d3}
       <table>
         <tr><td>Início</td><td><b>20/02/2027</b></td></tr>
         <tr><td>Aulas</td><td>1 fim de semana por mês (100h + estágio)</td></tr>
-        <tr><td>Investimento</td><td>Consulte condições</td></tr>
+        <tr><td>Inscrição</td><td><b>R$ 180</b> (2º lote, até 10/11/2026)<br><small>3º lote: R$ 250 após 10/01/2027</small></td></tr>
+        <tr><td>Investimento</td><td><b>20x de R$ 420</b> ou R$ 6.200 à vista</td></tr>
       </table>
       <div class="mec"><img src="img/selo-mec.jpg" alt="Selo MEC"><span>Certificação reconhecida pelo MEC</span></div>
-      <a class="btn" href="https://wa.me/5547988067119?text=Ol%C3%A1!%20Quero%20me%20inscrever%20na%20Turma%20Presencial%202027%20de%20Constela%C3%A7%C3%A3o%20Familiar." target="_blank" rel="noopener">Quero me inscrever</a>
+      <button type="button" class="btn" data-inscricao="presencial">Quero me inscrever</button>
     </div>
   </div>
 </div></section>
@@ -342,6 +389,134 @@ footer a{color:#efe6d3}
   <svg viewBox="0 0 32 32"><path d="M16 3C8.8 3 3 8.8 3 16c0 2.3.6 4.5 1.7 6.4L3 29l6.8-1.8c1.9 1 4 1.6 6.2 1.6 7.2 0 13-5.8 13-13S23.2 3 16 3zm0 23.6c-2 0-3.9-.5-5.5-1.5l-.4-.2-4 1.1 1.1-3.9-.3-.4c-1.1-1.7-1.6-3.6-1.6-5.6C5.3 10.1 10.1 5.3 16 5.3S26.7 10.1 26.7 16 21.9 26.6 16 26.6zm5.9-8c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1c-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.6 5.7 5 .8.3 1.4.5 1.9.7.8.3 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
 </a>
 
-<script>document.getElementById('ano').textContent=new Date().getFullYear();</script>
+<!-- FORMULÁRIO DE INSCRIÇÃO -->
+<dialog class="insc" id="inscricao" aria-labelledby="insc-titulo">
+  <div class="topo">
+    <small>Formação em Constelação Familiar</small>
+    <b id="insc-titulo">Faça sua inscrição</b>
+    <button type="button" class="fechar" aria-label="Fechar" data-fechar>×</button>
+    <div class="barra"><i id="insc-barra"></i></div>
+  </div>
+  <form id="insc-form" novalidate>
+    <div class="etapa ativa" data-etapa="1">
+      <h4>Qual formação te interessa?</h4>
+      <label class="opcao"><input type="radio" name="curso" value="Online 2026">
+        <div><b>Online 2026</b><span>Aulas ao vivo, início 21/10<br><strong>Inscrição R$ 300 + 10x de R$ 220 ou R$ 1.800 à vista</strong></span></div></label>
+      <label class="opcao"><input type="radio" name="curso" value="Presencial 2027 – Porto Belo/SC">
+        <div><b>Presencial 2027 em Porto Belo/SC</b><span>Início 20/02 • 110h com estágio e certificação MEC<br><strong>Inscrição R$ 180 (até 10/11) + 20x de R$ 420 ou R$ 6.200 à vista</strong></span></div></label>
+    </div>
+    <div class="etapa" data-etapa="2">
+      <h4>Você já atua com terapias?</h4>
+      <label class="opcao"><input type="radio" name="atuacao" value="Sim, já sou terapeuta"><div><b>Sim, já sou terapeuta</b></div></label>
+      <label class="opcao"><input type="radio" name="atuacao" value="Não, quero começar na área"><div><b>Não, quero começar na área</b></div></label>
+      <label class="opcao"><input type="radio" name="atuacao" value="Busco para desenvolvimento pessoal"><div><b>Busco para desenvolvimento pessoal</b></div></label>
+    </div>
+    <div class="etapa" data-etapa="3">
+      <h4>Seus dados de contato</h4>
+      <div class="campo"><label for="insc-nome">Nome completo</label><input id="insc-nome" name="nome" autocomplete="name" required></div>
+      <div class="campo"><label for="insc-tel">WhatsApp</label><input id="insc-tel" name="whatsapp" type="tel" inputmode="numeric" autocomplete="tel" placeholder="(47) 99999-9999" required></div>
+      <div class="campo"><label for="insc-email">E-mail <em>(opcional)</em></label><input id="insc-email" name="email" type="email" autocomplete="email"></div>
+      <p class="aviso">Usaremos seus dados apenas para enviar informações sobre a formação. <a href="privacidade.html" target="_blank">Política de Privacidade</a></p>
+    </div>
+    <div class="etapa" data-etapa="4">
+      <h4>Confira sua inscrição</h4>
+      <div class="revisao" id="insc-revisao"></div>
+    </div>
+    <div class="etapa" data-etapa="5">
+      <div class="fim">
+        <div class="ok">✓</div>
+        <h4>Inscrição recebida! 🌿</h4>
+        <p>Em breve entraremos em contato pelo WhatsApp com todos os detalhes da turma escolhida. Se preferir, fale com a gente agora.</p>
+        <a class="btn" id="insc-wpp" href="#" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+      </div>
+    </div>
+    <p class="erro" id="insc-erro" role="alert"></p>
+    <div class="navs" id="insc-navs">
+      <button type="button" class="btn voltar" id="insc-voltar" hidden>Voltar</button>
+      <button type="button" class="btn" id="insc-avancar">Continuar</button>
+    </div>
+  </form>
+</dialog>
+
+<script>
+document.getElementById('ano').textContent=new Date().getFullYear();
+
+/* Formulário de inscrição
+   PLANILHA_URL: cole aqui a URL do app da web do Google Apps Script para salvar os cadastros na planilha. */
+(function(){
+  var PLANILHA_URL = '';
+  var WPP = '5547988067119';
+  var dlg=document.getElementById('inscricao'), form=document.getElementById('insc-form');
+  var etapas=form.querySelectorAll('.etapa'), barra=document.getElementById('insc-barra');
+  var btnV=document.getElementById('insc-voltar'), btnA=document.getElementById('insc-avancar');
+  var erro=document.getElementById('insc-erro'), navs=document.getElementById('insc-navs');
+  var atual=1;
+
+  function mostrar(n){
+    atual=n; erro.textContent='';
+    etapas.forEach(function(e){e.classList.toggle('ativa',+e.dataset.etapa===n)});
+    barra.style.width=Math.min(n,4)*25+'%';
+    btnV.hidden=(n===1);
+    btnA.textContent=(n===4)?'Enviar inscrição':'Continuar';
+    navs.hidden=(n===5);
+  }
+  function val(nome){var el=form.elements[nome];return el?(el.value||'').trim():''}
+  function digitos(){return val('whatsapp').replace(/\D/g,'')}
+  function valida(n){
+    if(n===1&&!val('curso'))return 'Escolha uma das turmas.';
+    if(n===2&&!val('atuacao'))return 'Escolha uma opção.';
+    if(n===3){
+      if(val('nome').length<3)return 'Informe seu nome completo.';
+      var d=digitos(); if(d.length<10||d.length>11)return 'Informe um WhatsApp válido com DDD.';
+      var em=val('email'); if(em&&!/^\S+@\S+\.\S+$/.test(em))return 'Confira o e-mail informado.';
+    }
+    return '';
+  }
+  function revisar(){
+    var itens=[['Turma',val('curso')],['Atuação',val('atuacao')],['Nome',val('nome')],['WhatsApp',val('whatsapp')]];
+    if(val('email'))itens.push(['E-mail',val('email')]);
+    var box=document.getElementById('insc-revisao'); box.innerHTML='';
+    itens.forEach(function(i){var d=document.createElement('div'),s=document.createElement('small');s.textContent=i[0];d.appendChild(s);d.appendChild(document.createTextNode(i[1]));box.appendChild(d)});
+  }
+  function enviar(){
+    var dados={data:new Date().toLocaleString('pt-BR'),curso:val('curso'),atuacao:val('atuacao'),nome:val('nome'),whatsapp:val('whatsapp'),email:val('email'),origem:'site'};
+    if(PLANILHA_URL){
+      try{fetch(PLANILHA_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(dados)})}catch(e){}
+    }
+    if(window.fbq)fbq('track','Lead',{content_name:dados.curso});
+    var msg='Olá! Acabei de me inscrever pelo site na Formação em Constelação Familiar.\n\n*Turma:* '+dados.curso+'\n*Nome:* '+dados.nome+'\n*Atuação:* '+dados.atuacao+(dados.email?'\n*E-mail:* '+dados.email:'');
+    document.getElementById('insc-wpp').href='https://wa.me/'+WPP+'?text='+encodeURIComponent(msg);
+    mostrar(5);
+  }
+  btnA.addEventListener('click',function(){
+    var e=valida(atual); if(e){erro.textContent=e;return}
+    if(atual===3)revisar();
+    if(atual===4){enviar();return}
+    mostrar(atual+1);
+  });
+  btnV.addEventListener('click',function(){if(atual>1)mostrar(atual-1)});
+  form.addEventListener('change',function(ev){
+    if(ev.target.type==='radio'&&(atual===1||atual===2)){erro.textContent='';setTimeout(function(){mostrar(atual+1)},220)}
+  });
+  form.addEventListener('input',function(){erro.textContent=''});
+  form.addEventListener('submit',function(ev){ev.preventDefault();btnA.click()});
+  document.getElementById('insc-tel').addEventListener('input',function(){
+    var d=this.value.replace(/\D/g,'').slice(0,11),f=d;
+    if(d.length>2)f='('+d.slice(0,2)+') '+d.slice(2);
+    if(d.length>7)f='('+d.slice(0,2)+') '+d.slice(2,d.length-4)+'-'+d.slice(-4);
+    this.value=f;
+  });
+  dlg.querySelector('[data-fechar]').addEventListener('click',function(){dlg.close()});
+  dlg.addEventListener('click',function(ev){if(ev.target===dlg)dlg.close()});
+  document.querySelectorAll('[data-inscricao]').forEach(function(b){
+    b.addEventListener('click',function(){
+      form.reset(); mostrar(1);
+      var c=b.dataset.inscricao;
+      if(c){var r=form.querySelector('input[name=curso][value^="'+(c==='online'?'Online':'Presencial')+'"]');if(r){r.checked=true;mostrar(2)}}
+      dlg.showModal();
+    });
+  });
+})();
+</script>
 </body>
 </html>
